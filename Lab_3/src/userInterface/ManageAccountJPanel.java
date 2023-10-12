@@ -74,6 +74,12 @@ public class ManageAccountJPanel extends javax.swing.JPanel {
         txtAccountNumber = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
 
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
+
         tblAccounts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -260,6 +266,11 @@ public class ManageAccountJPanel extends javax.swing.JPanel {
         
         
     }//GEN-LAST:event_btnViewDetailsActionPerformed
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        // TODO add your handling code here:
+        populateTable();
+    }//GEN-LAST:event_formComponentShown
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
