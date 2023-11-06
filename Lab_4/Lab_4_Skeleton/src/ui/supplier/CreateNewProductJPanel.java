@@ -200,6 +200,25 @@ public class CreateNewProductJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
+       
+     if( txtName.getText().isEmpty() || txtPrice.getText().isEmpty() ){
+        
+         
+         JOptionPane.showMessageDialog(this, "Field is empty");
+     }   
+     else if(!txtName.getText().matches("^[A-Za-z]+$")){
+     
+          JOptionPane.showMessageDialog(this, "Incorrect Name");
+     }    
+     
+    else if( !txtPrice.getText().matches("[1-9][0-9][0-9]") ){
+         
+         JOptionPane.showMessageDialog(this, "Invalid Price");
+         
+     }
+        
+        
+        else{   
         Product product = supplier.getProductCatalog().addProduct();
         product.setName(txtName.getText());
         String stringPrice = txtPrice.getText();
@@ -211,6 +230,10 @@ public class CreateNewProductJPanel extends javax.swing.JPanel {
         }
         JOptionPane.showMessageDialog(this, "Product successfully added", "Information", JOptionPane.INFORMATION_MESSAGE);
         backAction();
+        
+        
+                }   
+        
 }//GEN-LAST:event_btnAddActionPerformed
     private void backAction() {
         workArea.remove(this);

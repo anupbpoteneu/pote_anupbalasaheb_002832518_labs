@@ -38,6 +38,8 @@ public class AddSupplier extends javax.swing.JPanel {
     private JPanel workArea;
     private SupplierDirectory supplierDirectory;
     
+   // boolean personExist=false;
+    
     private final JFileChooser fileChooser = new JFileChooser();
     ImageIcon logoImage;
     
@@ -192,13 +194,49 @@ public class AddSupplier extends javax.swing.JPanel {
 
     private void btnAddSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSupplierActionPerformed
         // TODO add your handling code here:
+        //System.out.println("1"); 
+        //Supplier s = new Supplier();
+      boolean personExist=false;  
+      for(Supplier s : supplierDirectory.getSupplierList()) {
+          //System.out.println("2"); 
+        if(s.getSupplyName().equals(txtName.getText())) {
+               // return selectedP;        
+               //System.out.println("3"); 
+            JOptionPane.showMessageDialog(this, "Supplier Already Exists");
+            personExist=true;
+              // System.out.println("4"); 
+            // s.setSupplyName(txtName.getText());
+             //s.setSupplyDescription(txtdesc.getText());
+               //  s.setLogoImage(logoImage);
+                
+            }
+     
+        }
+      
+     if( txtName.getText().isEmpty() || txtdesc.getText().isEmpty() ){
+        
+         
+         JOptionPane.showMessageDialog(this, "Field is empty");
+     }   
+     else if(!txtName.getText().matches("^[A-Za-z]+$")){
+     
+          JOptionPane.showMessageDialog(this, "Incorrect Name");
+     }
+     
+      
+     else{      
+       // System.out.println("5"); 
+        if( personExist==false){    
+        //System.out.println("6"); 
         Supplier supplier = supplierDirectory.addSupplier();
         supplier.setSupplyName(txtName.getText());
         supplier.setSupplyDescription(txtdesc.getText());
         supplier.setLogoImage(logoImage);
         
-        JOptionPane.showMessageDialog(this, "Supplier successfully added", "Warning", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Supplier successfully added!!!!", "Warning", JOptionPane.INFORMATION_MESSAGE);
         backAction();
+     }
+     }
     }//GEN-LAST:event_btnAddSupplierActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed

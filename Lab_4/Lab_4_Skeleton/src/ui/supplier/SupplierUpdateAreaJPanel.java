@@ -251,7 +251,7 @@ public class SupplierUpdateAreaJPanel extends javax.swing.JPanel {
         }
         
       
-      JOptionPane.showMessageDialog(this, "Supplier successfully added", "Warning", JOptionPane.INFORMATION_MESSAGE);
+      JOptionPane.showMessageDialog(this, "*Supplier successfully Updated*", "Warning", JOptionPane.INFORMATION_MESSAGE);
         backAction();
       
     }//GEN-LAST:event_btnAddSupplierActionPerformed
